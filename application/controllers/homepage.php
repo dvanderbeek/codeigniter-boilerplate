@@ -4,10 +4,20 @@ class Homepage extends BP_Controller {
     
     public function __construct(){  
         parent::__construct();
+		
+		$this->load->library('tank_auth');
+		if ($this->tank_auth->is_logged_in() == FALSE) {
+			redirect('/auth/login/');
+		}
     }
 
     public function index()
     {
+    	
+		// Define Meta
+        $this->title = "Home!";
+        $this->description = "A Codeigniter-Boilerplate example";
+		
         /*Page dedicated JS - CSS - Google Fonts
         $this->javascript = array("homepage.js");
         */

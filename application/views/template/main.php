@@ -13,7 +13,7 @@
   <title><?php echo $title?></title>
   <?else:?>
   <?php /* Generic site title: used if the page object has not a title */?>
-  <title>__YOUR SITE TITLE HERE__</title>
+  <title>CE Squared</title>
   <?php endif;?>
 
   <?php /* codeigniter-boilerplate: Page Description**************************/ ?>

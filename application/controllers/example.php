@@ -14,8 +14,7 @@ class Example extends BP_Controller {
         $this->template = "example-template";
         */
         $this->load->model('Twitter');
-		$twitter = new Twitter();
-        $toView['tweets'] = $twitter->get_tweets('dvanderbeek');
+        $toView['tweets'] = $this->Twitter->get_tweets('dvanderbeek');
         // Define Meta
         $this->title = "Example!";
         $this->description = "A Codeigniter-Boilerplate example";

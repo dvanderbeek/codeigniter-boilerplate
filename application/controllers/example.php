@@ -4,17 +4,18 @@ class Example extends BP_Controller {
 	public function __construct(){  
         parent::__construct();
 		
-		$this->load->library('tank_auth');
 		if ($this->tank_auth->is_logged_in() == FALSE) {
 			redirect('/auth/login/');
-		}
+		}				
     }
     public function index()
     {
         /* Remember you can change the main template if you need!
         $this->template = "example-template";
         */
-
+        $this->load->model('Twitter');
+		$twitter = new Twitter();
+        $toView['tweets'] = $twitter->get_tweets('dvanderbeek');
         // Define Meta
         $this->title = "Example!";
         $this->description = "A Codeigniter-Boilerplate example";
@@ -30,7 +31,7 @@ class Example extends BP_Controller {
 
         /*short cut to load->view("pages/page_name",$content,true)*/
         $this->build_content($toView);
-
+		
         $this->render_page();
     }
 }
